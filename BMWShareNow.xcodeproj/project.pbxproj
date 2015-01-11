@@ -10,6 +10,8 @@
 		A473DC2B1A62069B005CD941 /* CSAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A473DC281A62069B005CD941 /* CSAnimation.m */; };
 		A473DC2C1A62069B005CD941 /* EtchCustomBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC291A62069B005CD941 /* EtchCustomBG.swift */; };
 		A473DC2D1A62069B005CD941 /* EtchCustomBGAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC2A1A62069B005CD941 /* EtchCustomBGAnimationView.swift */; };
+		A473DC301A622499005CD941 /* ShareNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC2F1A622499005CD941 /* ShareNowViewController.swift */; };
+		A473DC321A623EDF005CD941 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC311A623EDF005CD941 /* CategoryTableViewCell.swift */; };
 		A4BD41DE1A61DF9F00AEDCA1 /* GenericVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD41DD1A61DF9F00AEDCA1 /* GenericVariables.swift */; };
 		A4F0BC641A610A7C002B1126 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0BC631A610A7C002B1126 /* AppDelegate.swift */; };
 		A4F0BC691A610A7C002B1126 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F0BC671A610A7C002B1126 /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 		A473DC281A62069B005CD941 /* CSAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSAnimation.m; sourceTree = "<group>"; };
 		A473DC291A62069B005CD941 /* EtchCustomBG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtchCustomBG.swift; sourceTree = "<group>"; };
 		A473DC2A1A62069B005CD941 /* EtchCustomBGAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtchCustomBGAnimationView.swift; sourceTree = "<group>"; };
+		A473DC2F1A622499005CD941 /* ShareNowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareNowViewController.swift; path = BMWShareNow/Controllers/ShareNowViewController.swift; sourceTree = "<group>"; };
+		A473DC311A623EDF005CD941 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryTableViewCell.swift; path = Views/CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		A4BD41DD1A61DF9F00AEDCA1 /* GenericVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericVariables.swift; sourceTree = "<group>"; };
 		A4F0BC5E1A610A7C002B1126 /* BMWShareNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMWShareNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F0BC621A610A7C002B1126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				A473DC281A62069B005CD941 /* CSAnimation.m */,
 				A473DC291A62069B005CD941 /* EtchCustomBG.swift */,
 				A473DC2A1A62069B005CD941 /* EtchCustomBGAnimationView.swift */,
+				A473DC311A623EDF005CD941 /* CategoryTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			children = (
 				A4F0BCA81A61B5A3002B1126 /* LoginViewController.swift */,
 				A4F0BCAE1A61D96D002B1126 /* MainViewController.swift */,
+				A473DC2F1A622499005CD941 /* ShareNowViewController.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -281,9 +287,16 @@
 				TargetAttributes = {
 					A4F0BC5D1A610A7C002B1126 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 66XP53YSKL;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					A4F0BC721A610A7C002B1126 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 66XP53YSKL;
 						TestTargetID = A4F0BC5D1A610A7C002B1126;
 					};
 				};
@@ -337,8 +350,10 @@
 				A4F0BCA91A61B5A3002B1126 /* LoginViewController.swift in Sources */,
 				A473DC2B1A62069B005CD941 /* CSAnimation.m in Sources */,
 				A473DC2D1A62069B005CD941 /* EtchCustomBGAnimationView.swift in Sources */,
+				A473DC301A622499005CD941 /* ShareNowViewController.swift in Sources */,
 				A4F0BC641A610A7C002B1126 /* AppDelegate.swift in Sources */,
 				A4BD41DE1A61DF9F00AEDCA1 /* GenericVariables.swift in Sources */,
+				A473DC321A623EDF005CD941 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +412,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: Papafish.BMWShareNow";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ahryun Moon (86QP24GF4B)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -417,6 +433,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "1477b4cc-8827-4f1f-8a8c-1b68c7b8486e";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -440,7 +457,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: Papafish.BMWShareNow";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: Papafish.BMWShareNow";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -453,6 +471,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "1477b4cc-8827-4f1f-8a8c-1b68c7b8486e";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -463,6 +482,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ahryun Moon (86QP24GF4B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ahryun Moon (86QP24GF4B)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -471,6 +492,7 @@
 				INFOPLIST_FILE = BMWShareNow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "54f78700-0184-4675-95d2-2b616ead3870";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)/BMWShareNow-Bridging-Header.h";
 			};
 			name = Debug;
@@ -479,6 +501,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ahryun Moon (86QP24GF4B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ahryun Moon (86QP24GF4B)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -487,6 +511,7 @@
 				INFOPLIST_FILE = BMWShareNow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "54f78700-0184-4675-95d2-2b616ead3870";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)/BMWShareNow-Bridging-Header.h";
 			};
 			name = Release;
@@ -495,6 +520,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -506,6 +533,7 @@
 				INFOPLIST_FILE = BMWShareNowTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BMWShareNow.app/BMWShareNow";
 			};
 			name = Debug;
@@ -514,6 +542,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -521,6 +551,7 @@
 				INFOPLIST_FILE = BMWShareNowTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BMWShareNow.app/BMWShareNow";
 			};
 			name = Release;

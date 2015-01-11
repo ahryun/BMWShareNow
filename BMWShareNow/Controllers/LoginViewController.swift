@@ -29,11 +29,20 @@ class LoginViewController: UIViewController {
                 (user: PFUser!, error: NSError!) -> Void in
                 if user != nil {
                     println("User logged in through Facebook!")
-                    
+                    self.linkInstallationToUser(user)
                 }
             })
         }
         self.performSegueWithIdentifier("To Main Controller", sender: self)
+    }
+    
+    func linkInstallationToUser(user: PFUser!) {
+        
+        println("In function \(__FUNCTION__)")
+        
+        let installation: PFInstallation = PFInstallation.currentInstallation()
+        installation["user"] = user
+        installation.saveInBackgroundWithBlock(nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

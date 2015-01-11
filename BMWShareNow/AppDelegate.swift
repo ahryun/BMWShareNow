@@ -14,13 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 //        Parse.enableLocalDatastore()
         Parse.setApplicationId("qyJmkYXFZ4ejFEsqp7kARLijpMnWLroeIbRT3muT", clientKey: "04VSHwypLPTBYptGKRF8tlSN34xKf3MxuLuykTEy")
         PFFacebookUtils.initializeFacebook()
         FBAppEvents.activateApp()
+        
+        let types: UIUserNotificationType = .Badge | .Sound | .Alert
+        let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
         
         return true
     }
@@ -58,5 +62,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication,
                 withSession:PFFacebookUtils.session())
     }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        
+        println("In function \(__FUNCTION__)")
+        
+        let currentInstallation = PFInstallation.currentInstallation()
+        currentInstallation.setDeviceTokenFromData(deviceToken)
+        currentInstallation.saveInBackgroundWithBlock(nil)
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        
+        println("Remote notification registraton failed \(error)")
+    }
+    
 }
 

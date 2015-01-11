@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
         println("In function \(__FUNCTION__) in \(self.description) \n")
         
         var query = PFUser.query()
-        var usernameArray = ["seth", "amy", "jasper", "ZE9n8VcEi6vKzaNarNRAyEd2A"]
+        var usernameArray = ["seth", "amy", "jasper", "peter"]
         query.cachePolicy = kPFCachePolicyCacheElseNetwork
         query.whereKey("username", containedIn: usernameArray)
         query.findObjectsInBackgroundWithBlock() {
@@ -163,7 +163,7 @@ class MainViewController: UIViewController {
         
         println("In function \(__FUNCTION__) in \(self.description) \n")
         
-        
+        self.performSegueWithIdentifier("Share Now", sender: self)
     }
     
     /************************/
