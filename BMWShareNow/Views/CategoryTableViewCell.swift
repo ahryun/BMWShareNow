@@ -18,13 +18,6 @@ class CategoryTableViewCell: UITableViewCell {
     
     var whiteCircleLayer: CAShapeLayer!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        
-        
-    }
-    
     func setUpBackground(addCircle: Bool = true) {
         
         println("In function \(__FUNCTION__) in \(self.description) \n")
@@ -42,15 +35,5 @@ class CategoryTableViewCell: UITableViewCell {
         var shape = CAShapeLayer()
         shape.path = UIBezierPath(ovalInRect: self.categoryImageView.bounds).CGPath
         self.categoryImageView.layer.mask = shape
-        
-        self.innerView.animate(delayed: false, completionHandler: nil)
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-        
-    }
-
 }

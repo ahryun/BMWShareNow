@@ -76,6 +76,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         println("Remote notification registraton failed \(error)")
     }
-    
 }
-

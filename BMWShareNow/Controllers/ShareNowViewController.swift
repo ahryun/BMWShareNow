@@ -13,6 +13,7 @@ class ShareNowViewController: UIViewController {
     @IBOutlet weak var categoryTableView: UITableView!
     
     var categories = [PFObject]()
+    var queryName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,14 @@ class ShareNowViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.navigationItem.hidesBackButton = true
         self.queryCategories()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        println("In function \(__FUNCTION__) in \(self.description) \n")
+        
+        self.view.animate(delayed: false, completionHandler: nil)
     }
     
     func queryCategories() {
@@ -35,6 +44,23 @@ class ShareNowViewController: UIViewController {
                 self.categoryTableView.reloadData()
             }
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        println("In function \(__FUNCTION__) in \(self.description) \n")
+        
+        if segue.identifier == "Pick Location" {
+            var destController: LocationsTableViewController = segue.destinationViewController as LocationsTableViewController
+            destController.queryName = self.queryName
+        }
+    }
+    
+    @IBAction func navigateBack(sender: AnyObject) {
+        
+        println("In function \(__FUNCTION__) in \(self.description) \n")
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     /************************/
@@ -88,6 +114,10 @@ class ShareNowViewController: UIViewController {
         
         println("In function \(__FUNCTION__)")
         
+        if indexPath.item < self.categories.count {
+            self.queryName = self.categories[indexPath.item]["name"] as String
+        }
+        self.performSegueWithIdentifier("Pick Location", sender: self)
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {

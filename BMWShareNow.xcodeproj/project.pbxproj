@@ -12,7 +12,12 @@
 		A473DC2D1A62069B005CD941 /* EtchCustomBGAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC2A1A62069B005CD941 /* EtchCustomBGAnimationView.swift */; };
 		A473DC301A622499005CD941 /* ShareNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC2F1A622499005CD941 /* ShareNowViewController.swift */; };
 		A473DC321A623EDF005CD941 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC311A623EDF005CD941 /* CategoryTableViewCell.swift */; };
+		A473DC341A625421005CD941 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC331A625421005CD941 /* LocationsTableViewController.swift */; };
+		A473DC391A62695A005CD941 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC381A62695A005CD941 /* SearchTableViewController.swift */; };
+		A473DC3B1A62885F005CD941 /* SetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC3A1A62885F005CD941 /* SetTimeViewController.swift */; };
+		A473DC3D1A6288E1005CD941 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC3C1A6288E1005CD941 /* TimeTableViewCell.swift */; };
 		A4BD41DE1A61DF9F00AEDCA1 /* GenericVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD41DD1A61DF9F00AEDCA1 /* GenericVariables.swift */; };
+		A4BD41E01A629D7E00AEDCA1 /* LeaveNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD41DF1A629D7E00AEDCA1 /* LeaveNowViewController.swift */; };
 		A4F0BC641A610A7C002B1126 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0BC631A610A7C002B1126 /* AppDelegate.swift */; };
 		A4F0BC691A610A7C002B1126 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F0BC671A610A7C002B1126 /* Main.storyboard */; };
 		A4F0BC6B1A610A7C002B1126 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F0BC6A1A610A7C002B1126 /* Images.xcassets */; };
@@ -58,7 +63,12 @@
 		A473DC2A1A62069B005CD941 /* EtchCustomBGAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtchCustomBGAnimationView.swift; sourceTree = "<group>"; };
 		A473DC2F1A622499005CD941 /* ShareNowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareNowViewController.swift; path = BMWShareNow/Controllers/ShareNowViewController.swift; sourceTree = "<group>"; };
 		A473DC311A623EDF005CD941 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryTableViewCell.swift; path = Views/CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		A473DC331A625421005CD941 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationsTableViewController.swift; path = BMWShareNow/Controllers/LocationsTableViewController.swift; sourceTree = "<group>"; };
+		A473DC381A62695A005CD941 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = BMWShareNow/Controllers/SearchTableViewController.swift; sourceTree = "<group>"; };
+		A473DC3A1A62885F005CD941 /* SetTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetTimeViewController.swift; path = BMWShareNow/Controllers/SetTimeViewController.swift; sourceTree = "<group>"; };
+		A473DC3C1A6288E1005CD941 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeTableViewCell.swift; path = Views/TimeTableViewCell.swift; sourceTree = "<group>"; };
 		A4BD41DD1A61DF9F00AEDCA1 /* GenericVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericVariables.swift; sourceTree = "<group>"; };
+		A4BD41DF1A629D7E00AEDCA1 /* LeaveNowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeaveNowViewController.swift; path = BMWShareNow/Controllers/LeaveNowViewController.swift; sourceTree = "<group>"; };
 		A4F0BC5E1A610A7C002B1126 /* BMWShareNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMWShareNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F0BC621A610A7C002B1126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F0BC631A610A7C002B1126 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,8 +147,16 @@
 				A473DC291A62069B005CD941 /* EtchCustomBG.swift */,
 				A473DC2A1A62069B005CD941 /* EtchCustomBGAnimationView.swift */,
 				A473DC311A623EDF005CD941 /* CategoryTableViewCell.swift */,
+				A473DC3C1A6288E1005CD941 /* TimeTableViewCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		A473DC371A625D46005CD941 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		A4F0BC551A610A7B002B1126 = {
@@ -164,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				A4F0BCAA1A61B5AF002B1126 /* Controllers */,
+				A473DC371A625D46005CD941 /* Models */,
 				A473DC2E1A6206A3005CD941 /* Views */,
 				A4F0BC611A610A7C002B1126 /* Supporting Files */,
 			);
@@ -233,6 +252,10 @@
 				A4F0BCA81A61B5A3002B1126 /* LoginViewController.swift */,
 				A4F0BCAE1A61D96D002B1126 /* MainViewController.swift */,
 				A473DC2F1A622499005CD941 /* ShareNowViewController.swift */,
+				A473DC331A625421005CD941 /* LocationsTableViewController.swift */,
+				A473DC3A1A62885F005CD941 /* SetTimeViewController.swift */,
+				A4BD41DF1A629D7E00AEDCA1 /* LeaveNowViewController.swift */,
+				A473DC381A62695A005CD941 /* SearchTableViewController.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -345,13 +368,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A473DC341A625421005CD941 /* LocationsTableViewController.swift in Sources */,
+				A4BD41E01A629D7E00AEDCA1 /* LeaveNowViewController.swift in Sources */,
 				A4F0BCAF1A61D96D002B1126 /* MainViewController.swift in Sources */,
 				A473DC2C1A62069B005CD941 /* EtchCustomBG.swift in Sources */,
 				A4F0BCA91A61B5A3002B1126 /* LoginViewController.swift in Sources */,
+				A473DC3D1A6288E1005CD941 /* TimeTableViewCell.swift in Sources */,
 				A473DC2B1A62069B005CD941 /* CSAnimation.m in Sources */,
 				A473DC2D1A62069B005CD941 /* EtchCustomBGAnimationView.swift in Sources */,
 				A473DC301A622499005CD941 /* ShareNowViewController.swift in Sources */,
 				A4F0BC641A610A7C002B1126 /* AppDelegate.swift in Sources */,
+				A473DC3B1A62885F005CD941 /* SetTimeViewController.swift in Sources */,
+				A473DC391A62695A005CD941 /* SearchTableViewController.swift in Sources */,
 				A4BD41DE1A61DF9F00AEDCA1 /* GenericVariables.swift in Sources */,
 				A473DC321A623EDF005CD941 /* CategoryTableViewCell.swift in Sources */,
 			);
