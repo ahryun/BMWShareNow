@@ -76,4 +76,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         println("Remote notification registraton failed \(error)")
     }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
+    {
+        println("In function \(__FUNCTION__) in \(self.description) \n")
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("RideRequest", object: nil, userInfo: nil)
+        completionHandler(UIBackgroundFetchResult.NoData)
+    }
 }

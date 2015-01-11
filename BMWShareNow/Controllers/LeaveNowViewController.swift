@@ -16,6 +16,8 @@ class LeaveNowViewController: UIViewController {
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var subLabel: UILabel!
+    @IBOutlet weak var noPassengerLabel: UILabel!
+    @IBOutlet weak var passengerImage: PFImageView!
     
     var selectedMinute: [String:String]!
     var numberSelected: Int!
@@ -31,12 +33,15 @@ class LeaveNowViewController: UIViewController {
         } else {
             self.minuteLabel.text = "Later"
             self.minsLabel.hidden = true
+            self.mainLabel.text = "depart"
         }
         
         self.mainLabel.text = self.queryName
         self.subLabel.text = self.locationSelected
         
         self.setUpButton()
+        self.sendPushNotification()
+        self.postToFacebook()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -45,6 +50,31 @@ class LeaveNowViewController: UIViewController {
         println("In function \(__FUNCTION__) in \(self.description) \n")
         
         self.setUpMinutesLeftView()
+        self.showPopUp()
+        self.registerForNotifications()
+        self.noPassengerLabel.pulse()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        println("In function \(__FUNCTION__) in \(self.description) \n")
+        
+        self.unregisterForNotifications()
+    }
+    
+    func registerForNotifications() {
+        
+        println("In function \(__FUNCTION__)")
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("showPassengerAdded:"), name: "RideRequest", object: nil)
+    }
+    
+    func unregisterForNotifications() {
+        
+        println("In function \(__FUNCTION__)")
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "RideRequest", object: nil)
     }
 
     @IBAction func backButtonPressed(sender: AnyObject) {
@@ -52,6 +82,29 @@ class LeaveNowViewController: UIViewController {
         println("In function \(__FUNCTION__) in \(self.description) \n")
         
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func postToFacebook() {
+        
+        println("In function \(__FUNCTION__) in \(self.description) \n")
+        
+        // Post to facebook
+    }
+    
+    func sendPushNotification() {
+        
+        println("In function \(__FUNCTION__) in \(self.description) \n")
+        
+        var userQuery = PFUser.query()
+        userQuery.getObjectWithId("ABwVQVEsvk")
+        
+        var pushQuery = PFInstallation.query()
+        pushQuery.whereKey("user", matchesQuery: userQuery)
+        
+        var push = PFPush()
+        push.setQuery(pushQuery)
+        push.setMessage("I'm going to \(self.locationSelected). Want a ride?")
+        push.sendPushInBackgroundWithBlock(nil)
     }
     
     func setUpMinutesLeftView() {
@@ -102,7 +155,7 @@ class LeaveNowViewController: UIViewController {
         shape.strokeColor = UIColor.whiteColor().CGColor
         shape.fillColor = UIColor.clearColor().CGColor
         self.leaveNowButton.layer.addSublayer(shape)
-        self.leaveNowButton.setTitle("Share Ride", forState: .Normal)
+        self.leaveNowButton.setTitle("Leave Now", forState: .Normal)
         self.leaveNowButton.titleLabel?.font = gMediumFont
         self.leaveNowButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
     }
@@ -111,17 +164,57 @@ class LeaveNowViewController: UIViewController {
         
         println("In function \(__FUNCTION__) in \(self.description) \n")
         
+        PFCloud.callFunctionInBackground("startTrip", withParameters: ["rideID": "zyfKT7Hq95"], block: nil)
+        let alertView: UIAlertView = UIAlertView(title: "Perfect!", message: "Navigation information has been sent to your vehicle", delegate: self, cancelButtonTitle: "OK")
+        alertView.show()
+    }
+    
+    func showPopUp() {
+        let alertView: UIAlertView = UIAlertView(title: "Awesome!", message: "Your trip has been posted to Facebook. Nearby friends will be notified. Wait for passengers.", delegate: nil, cancelButtonTitle: "OK")
+        alertView.show()
+    }
+    
+    func showPassengerAdded(sender: AnyObject!) {
         
+        var query = PFUser.query()
+        query.whereKey("username", equalTo: "peter")
+        query.getFirstObjectInBackgroundWithBlock() {
+            (friend, err) in
+            if err == nil {
+                var alertView = CustomIOS7AlertView()
+                alertView.containerView = FriendsRequestAlertView(friend: friend as PFUser)
+                alertView.buttonTitles = ["OK"]
+                alertView.onButtonTouchUpInside = {
+                    (alertView: CustomIOS7AlertView!, buttonIndex: Int32) -> Void in
+                    if buttonIndex == 1 {
+                        // Accept
+                    }
+                    alertView.close()
+                    // Make peter's face popup
+                    self.noPassengerLabel.hidden = true
+                    self.passengerImage.file = (friend as PFUser)["thumbnail"] as PFFile
+                    self.passengerImage.loadInBackground() {
+                        (success) in
+                        var maskLayer = CAShapeLayer()
+                        maskLayer.path = UIBezierPath(ovalInRect: self.passengerImage.bounds).CGPath
+                        self.passengerImage.layer.mask = maskLayer
+                        var pathAnimation = CABasicAnimation(keyPath: "path")
+                        pathAnimation.fillMode = kCAFillModeBoth
+                        pathAnimation.removedOnCompletion = false
+                        pathAnimation.duration = 0.5
+                        pathAnimation.fromValue = UIBezierPath(ovalInRect: CGRect(x: self.passengerImage.frame.width / 2 - 2.0, y: self.passengerImage.frame.height / 2 - 2.0, width: 4.0, height: 4.0)).CGPath
+                        pathAnimation.toValue = UIBezierPath(ovalInRect: self.passengerImage.bounds).CGPath
+                        self.passengerImage.layer.mask.addAnimation(pathAnimation, forKey: "PathAnimation")
+                    }
+                }
+                alertView.show()
+            }
+        }
     }
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension LeaveNowViewController: UIAlertViewDelegate {
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        self.performSegueWithIdentifier("Map View", sender: self)
     }
-    */
-
 }

@@ -14,5 +14,6 @@
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 #import "CSAnimation.h"
+#import "CustomIOS7AlertView.h"
 
 #endif

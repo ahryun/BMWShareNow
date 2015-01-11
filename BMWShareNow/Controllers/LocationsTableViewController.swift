@@ -150,6 +150,13 @@ class LocationsTableViewController: UITableViewController {
         println("In function \(__FUNCTION__) in \(self.description) \n")
         
         self.indexSelected = indexPath.item
+        var query = PFQuery(className: "Location")
+        query.getObjectInBackgroundWithId("6XwzjWZoaK", block: {
+            (location, err) in
+            var locationObj = location as PFObject
+            locationObj["name"] = self.locationsArray[self.indexSelected]["name"] as? String
+            locationObj.saveInBackgroundWithBlock(nil)
+        })
         self.performSegueWithIdentifier("Set Time", sender: self)
     }
     

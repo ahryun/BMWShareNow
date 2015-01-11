@@ -18,6 +18,12 @@ class MainViewController: UIViewController {
     @IBOutlet weak var friend2ImageView: PFImageView!
     @IBOutlet weak var friend3ImageView: PFImageView!
     @IBOutlet weak var friend4ImageView: PFImageView!
+    @IBOutlet weak var subLabel: UILabel!
+    
+    var blueShape: CAShapeLayer!
+    var grayShape: CAShapeLayer!
+    var toValue: Float = 0.5
+    var queryName: String!
     
     var categories = [PFObject]()
     
@@ -33,10 +39,16 @@ class MainViewController: UIViewController {
         super.viewDidAppear(animated)
         
         self.view.animate(delayed: true, completionHandler: {
-            self.setUpCreditView()
+            self.setUpCreditView(self.toValue)
             self.setUpButton()
             self.setUpFriends()
         })
+    }
+    
+    @IBAction func unwindToMain(segue: UIStoryboardSegue) {
+        // update the button
+        self.subLabel.text = "1 more trip to top off to full"
+        self.toValue = 0.75
     }
     
     func setUp() {
@@ -104,42 +116,53 @@ class MainViewController: UIViewController {
         self.view.addSubview(button)
     }
     
-    func setUpCreditView() {
+    func setUpCreditView(toValue: Float) {
         
         println("In function \(__FUNCTION__) in \(self.description) \n")
         
         var path = UIBezierPath(ovalInRect: self.batteryChargingView.bounds)
         let pattern: [CGFloat] = [2.0, 2.0]
         
-        var grayShape = CAShapeLayer()
+        if self.blueShape != nil {
+            self.blueShape.removeAllAnimations()
+            self.blueShape.removeFromSuperlayer()
+            self.blueShape = nil
+        }
         
-        grayShape.lineWidth = 8
-        grayShape.lineDashPattern = pattern
-        grayShape.strokeColor = gLightGrayColor.CGColor
-        grayShape.path = path.CGPath
-        grayShape.fillColor = UIColor.clearColor().CGColor
+        if self.grayShape != nil {
+            self.grayShape.removeAllAnimations()
+            self.grayShape.removeFromSuperlayer()
+            self.grayShape = nil
+        }
         
-        var blueShape = CAShapeLayer()
-//        blueShape.setAffineTransform(CGAffineTransformRotate(CGAffineTransformTranslate(CGAffineTransformIdentity, 0, blueShape.frame.height), -CGFloat(90.0 / 180.0 * M_PI)))
-        blueShape.lineWidth = 8
-        blueShape.lineDashPattern = pattern
-        blueShape.strokeColor = gBlueColor.CGColor
-        blueShape.path = path.CGPath
-        blueShape.fillColor = UIColor.clearColor().CGColor
+        self.grayShape = CAShapeLayer()
+        self.grayShape.lineWidth = 8
+        self.grayShape.lineDashPattern = pattern
+        self.grayShape.strokeColor = gLightGrayColor.CGColor
+        self.grayShape.path = path.CGPath
+        self.grayShape.fillColor = UIColor.clearColor().CGColor
+        
+        self.blueShape = CAShapeLayer()
+        self.blueShape.lineWidth = 8
+        self.blueShape.lineDashPattern = pattern
+        self.blueShape.strokeColor = gBlueColor.CGColor
+        self.blueShape.path = path.CGPath
+        self.blueShape.fillColor = UIColor.clearColor().CGColor
         
         CATransaction.begin()
-        blueShape.removeAnimationForKey("Animate Stroke")
+        self.blueShape.removeAnimationForKey("Animate Stroke")
         var strokeAnimation = CABasicAnimation(keyPath: "strokeEnd")
         strokeAnimation.fillMode = kCAFillModeBoth
         strokeAnimation.removedOnCompletion = false
         strokeAnimation.duration = 0.5
         strokeAnimation.fromValue = 0
-        strokeAnimation.toValue = 0.75
-        blueShape.addAnimation(strokeAnimation, forKey: "Animate Stroke")
+        strokeAnimation.toValue = toValue
+        self.blueShape.addAnimation(strokeAnimation, forKey: "Animate Stroke")
         CATransaction.commit()
         
-        grayShape.addSublayer(blueShape)
-        self.batteryChargingView.layer.insertSublayer(grayShape, atIndex: 0)
+        self.grayShape.addSublayer(self.blueShape)
+        
+        self.batteryChargingView.layer.insertSublayer(self.grayShape, atIndex: 0)
     }
     
     func queryCategories() {
@@ -164,6 +187,16 @@ class MainViewController: UIViewController {
         println("In function \(__FUNCTION__) in \(self.description) \n")
         
         self.performSegueWithIdentifier("Share Now", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        println("In function \(__FUNCTION__) in \(self.description) \n")
+        
+        if segue.identifier == "Shortcut To Category" {
+            var destController: LocationsTableViewController = segue.destinationViewController as LocationsTableViewController
+            destController.queryName = self.queryName
+        }
     }
     
     /************************/
@@ -222,7 +255,9 @@ class MainViewController: UIViewController {
         
         println("In function \(__FUNCTION__) in \(self.description) \n")
         
-        // Go to the next page
+        self.queryName = self.categories[indexPath.item]["name"] as String
+        self.performSegueWithIdentifier("Shortcut To Category", sender: self)
+        
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

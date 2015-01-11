@@ -18,6 +18,11 @@
 		A473DC3D1A6288E1005CD941 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC3C1A6288E1005CD941 /* TimeTableViewCell.swift */; };
 		A4BD41DE1A61DF9F00AEDCA1 /* GenericVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD41DD1A61DF9F00AEDCA1 /* GenericVariables.swift */; };
 		A4BD41E01A629D7E00AEDCA1 /* LeaveNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD41DF1A629D7E00AEDCA1 /* LeaveNowViewController.swift */; };
+		A4BD41E21A62D89B00AEDCA1 /* FriendsRequestAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD41E11A62D89B00AEDCA1 /* FriendsRequestAlertView.swift */; };
+		A4BD41E41A62D9A000AEDCA1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD41E31A62D9A000AEDCA1 /* Extensions.swift */; };
+		A4BD41E71A62DB2000AEDCA1 /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4BD41E61A62DB2000AEDCA1 /* CustomIOS7AlertView.m */; };
+		A4BD41E91A62EE3D00AEDCA1 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD41E81A62EE3D00AEDCA1 /* NavigationViewController.swift */; };
+		A4BD41EB1A62EF6000AEDCA1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4BD41EA1A62EF6000AEDCA1 /* MapKit.framework */; };
 		A4F0BC641A610A7C002B1126 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0BC631A610A7C002B1126 /* AppDelegate.swift */; };
 		A4F0BC691A610A7C002B1126 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F0BC671A610A7C002B1126 /* Main.storyboard */; };
 		A4F0BC6B1A610A7C002B1126 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F0BC6A1A610A7C002B1126 /* Images.xcassets */; };
@@ -69,6 +74,12 @@
 		A473DC3C1A6288E1005CD941 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeTableViewCell.swift; path = Views/TimeTableViewCell.swift; sourceTree = "<group>"; };
 		A4BD41DD1A61DF9F00AEDCA1 /* GenericVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericVariables.swift; sourceTree = "<group>"; };
 		A4BD41DF1A629D7E00AEDCA1 /* LeaveNowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeaveNowViewController.swift; path = BMWShareNow/Controllers/LeaveNowViewController.swift; sourceTree = "<group>"; };
+		A4BD41E11A62D89B00AEDCA1 /* FriendsRequestAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsRequestAlertView.swift; sourceTree = "<group>"; };
+		A4BD41E31A62D9A000AEDCA1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A4BD41E51A62DB2000AEDCA1 /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOS7AlertView.h; sourceTree = "<group>"; };
+		A4BD41E61A62DB2000AEDCA1 /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOS7AlertView.m; sourceTree = "<group>"; };
+		A4BD41E81A62EE3D00AEDCA1 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationViewController.swift; path = BMWShareNow/Controllers/NavigationViewController.swift; sourceTree = "<group>"; };
+		A4BD41EA1A62EF6000AEDCA1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A4F0BC5E1A610A7C002B1126 /* BMWShareNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMWShareNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F0BC621A610A7C002B1126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F0BC631A610A7C002B1126 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4BD41EB1A62EF6000AEDCA1 /* MapKit.framework in Frameworks */,
 				A4F0BCA71A610E07002B1126 /* libsqlite3.dylib in Frameworks */,
 				A4F0BCAC1A61BE0A002B1126 /* FacebookSDK.framework in Frameworks */,
 				A4F0BCA51A610DFA002B1126 /* libz.dylib in Frameworks */,
@@ -148,6 +160,9 @@
 				A473DC2A1A62069B005CD941 /* EtchCustomBGAnimationView.swift */,
 				A473DC311A623EDF005CD941 /* CategoryTableViewCell.swift */,
 				A473DC3C1A6288E1005CD941 /* TimeTableViewCell.swift */,
+				A4BD41E11A62D89B00AEDCA1 /* FriendsRequestAlertView.swift */,
+				A4BD41E51A62DB2000AEDCA1 /* CustomIOS7AlertView.h */,
+				A4BD41E61A62DB2000AEDCA1 /* CustomIOS7AlertView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -193,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				A4BD41DD1A61DF9F00AEDCA1 /* GenericVariables.swift */,
+				A4BD41E31A62D9A000AEDCA1 /* Extensions.swift */,
 				A4F0BCAD1A61C5A0002B1126 /* BMWShareNow-Bridging-Header.h */,
 				A4F0BC6C1A610A7C002B1126 /* LaunchScreen.xib */,
 				A4F0BC6A1A610A7C002B1126 /* Images.xcassets */,
@@ -223,6 +239,7 @@
 		A4F0BC8D1A610D65002B1126 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A4BD41EA1A62EF6000AEDCA1 /* MapKit.framework */,
 				A4F0BCAB1A61BE0A002B1126 /* FacebookSDK.framework */,
 				A4F0BCA61A610E07002B1126 /* libsqlite3.dylib */,
 				A4F0BCA41A610DFA002B1126 /* libz.dylib */,
@@ -255,6 +272,7 @@
 				A473DC331A625421005CD941 /* LocationsTableViewController.swift */,
 				A473DC3A1A62885F005CD941 /* SetTimeViewController.swift */,
 				A4BD41DF1A629D7E00AEDCA1 /* LeaveNowViewController.swift */,
+				A4BD41E81A62EE3D00AEDCA1 /* NavigationViewController.swift */,
 				A473DC381A62695A005CD941 /* SearchTableViewController.swift */,
 			);
 			name = Controllers;
@@ -377,10 +395,14 @@
 				A473DC2B1A62069B005CD941 /* CSAnimation.m in Sources */,
 				A473DC2D1A62069B005CD941 /* EtchCustomBGAnimationView.swift in Sources */,
 				A473DC301A622499005CD941 /* ShareNowViewController.swift in Sources */,
+				A4BD41E21A62D89B00AEDCA1 /* FriendsRequestAlertView.swift in Sources */,
 				A4F0BC641A610A7C002B1126 /* AppDelegate.swift in Sources */,
+				A4BD41E41A62D9A000AEDCA1 /* Extensions.swift in Sources */,
+				A4BD41E91A62EE3D00AEDCA1 /* NavigationViewController.swift in Sources */,
 				A473DC3B1A62885F005CD941 /* SetTimeViewController.swift in Sources */,
 				A473DC391A62695A005CD941 /* SearchTableViewController.swift in Sources */,
 				A4BD41DE1A61DF9F00AEDCA1 /* GenericVariables.swift in Sources */,
+				A4BD41E71A62DB2000AEDCA1 /* CustomIOS7AlertView.m in Sources */,
 				A473DC321A623EDF005CD941 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
