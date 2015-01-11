@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A473DC2B1A62069B005CD941 /* CSAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A473DC281A62069B005CD941 /* CSAnimation.m */; };
+		A473DC2C1A62069B005CD941 /* EtchCustomBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC291A62069B005CD941 /* EtchCustomBG.swift */; };
+		A473DC2D1A62069B005CD941 /* EtchCustomBGAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473DC2A1A62069B005CD941 /* EtchCustomBGAnimationView.swift */; };
+		A4BD41DE1A61DF9F00AEDCA1 /* GenericVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD41DD1A61DF9F00AEDCA1 /* GenericVariables.swift */; };
 		A4F0BC641A610A7C002B1126 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0BC631A610A7C002B1126 /* AppDelegate.swift */; };
 		A4F0BC691A610A7C002B1126 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F0BC671A610A7C002B1126 /* Main.storyboard */; };
 		A4F0BC6B1A610A7C002B1126 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F0BC6A1A610A7C002B1126 /* Images.xcassets */; };
@@ -46,6 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A473DC271A62069B005CD941 /* CSAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSAnimation.h; sourceTree = "<group>"; };
+		A473DC281A62069B005CD941 /* CSAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSAnimation.m; sourceTree = "<group>"; };
+		A473DC291A62069B005CD941 /* EtchCustomBG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtchCustomBG.swift; sourceTree = "<group>"; };
+		A473DC2A1A62069B005CD941 /* EtchCustomBGAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtchCustomBGAnimationView.swift; sourceTree = "<group>"; };
+		A4BD41DD1A61DF9F00AEDCA1 /* GenericVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericVariables.swift; sourceTree = "<group>"; };
 		A4F0BC5E1A610A7C002B1126 /* BMWShareNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMWShareNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F0BC621A610A7C002B1126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F0BC631A610A7C002B1126 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +125,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A473DC2E1A6206A3005CD941 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A473DC271A62069B005CD941 /* CSAnimation.h */,
+				A473DC281A62069B005CD941 /* CSAnimation.m */,
+				A473DC291A62069B005CD941 /* EtchCustomBG.swift */,
+				A473DC2A1A62069B005CD941 /* EtchCustomBGAnimationView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		A4F0BC551A610A7B002B1126 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				A4F0BCAA1A61B5AF002B1126 /* Controllers */,
+				A473DC2E1A6206A3005CD941 /* Views */,
 				A4F0BC611A610A7C002B1126 /* Supporting Files */,
 			);
 			path = BMWShareNow;
@@ -147,6 +168,7 @@
 		A4F0BC611A610A7C002B1126 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A4BD41DD1A61DF9F00AEDCA1 /* GenericVariables.swift */,
 				A4F0BCAD1A61C5A0002B1126 /* BMWShareNow-Bridging-Header.h */,
 				A4F0BC6C1A610A7C002B1126 /* LaunchScreen.xib */,
 				A4F0BC6A1A610A7C002B1126 /* Images.xcassets */,
@@ -311,8 +333,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4F0BCAF1A61D96D002B1126 /* MainViewController.swift in Sources */,
+				A473DC2C1A62069B005CD941 /* EtchCustomBG.swift in Sources */,
 				A4F0BCA91A61B5A3002B1126 /* LoginViewController.swift in Sources */,
+				A473DC2B1A62069B005CD941 /* CSAnimation.m in Sources */,
+				A473DC2D1A62069B005CD941 /* EtchCustomBGAnimationView.swift in Sources */,
 				A4F0BC641A610A7C002B1126 /* AppDelegate.swift in Sources */,
+				A4BD41DE1A61DF9F00AEDCA1 /* GenericVariables.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +544,7 @@
 				A4F0BC7F1A610A7C002B1126 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4F0BC801A610A7C002B1126 /* Build configuration list for PBXNativeTarget "BMWShareNowTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +553,7 @@
 				A4F0BC821A610A7C002B1126 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
